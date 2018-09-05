@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="sv">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./mycss.css" />
-    <script src="main.js"></script>
+    <title></title>
+    <link rel="stylesheet" href="./mycss.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body> 
-
+<body>
+<<?php include "header.inc" ?>
+<main>
 <?php
 
 /* Ta emot text  from form och spara den i textfil  */ 
 
 $texten = $_POST["inlagg"]; 
-echo $texten; 
+echo $texten;  
+$tidpunkt = date('F Y h:i A');
+
 
 $handtag = fopen("inlaggen.txt" , 'a');
-fwrite($handtag, $texten); 
-fwrite($handtag, " \n");
+fwrite($handtag, "<p>" . $texten . "\n " .  $tidpunkt ."</p>" .  "\n  "); 
+
 echo "<p>
 Inlägget har sparats! </p>";
 
@@ -27,7 +29,12 @@ fclose($handtag);
 
 
 ?>
-    
+</main>
+<footer>
+WhipnDab
+</footer>
+</div>
+
+
 </body>
 </html>
-

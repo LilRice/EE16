@@ -9,8 +9,8 @@
 <body>
     <form action="upg_4b.php" method="post">
     <label>Tempratur</label> <input type="text" name="temp"> <br>
-    <label>Celcius</label> <input type="radio" name="omvandla"> OMVANDLA FROM NON RETARDED TO RETARDED&deg;<br>
-    <label>Faomvandla</label> <input type="radio" name="omvandla">  OMVANDLA FROM RETARDED TO NON RETARDED<br>
+    <label>Celcius</label> <input type="radio" name="omvandla" value="f2c"> OMVANDLA FROM NON RETARDED TO RETARDED&deg;<br>
+    <label>Faomvandla</label> <input type="radio" name="omvandla" value="c2f">  OMVANDLA FROM RETARDED TO NON RETARDED<br>
     
     <button>Omvandla</button>
     

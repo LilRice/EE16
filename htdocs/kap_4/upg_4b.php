@@ -10,7 +10,17 @@
 <?php 
 $temp = $_POST["temp"];  
 $omvandla = $_POST["omvandla"]; 
-echo "$temp $omvandla";
+
+if ($omvandla == 'f2c') {
+    $celcius = ("temp" - 32) * 5 / 9 ; 
+
+    echo "<p>Tempraturen är $celcius i Celcius </p>";
+
+} else {
+    $farenheit = 9 / 5 * $temp + 32; 
+    
+    echo"<p>Tempraturen är $farenheit i Fahrenheit</p>";
+}
 
 
 ?>

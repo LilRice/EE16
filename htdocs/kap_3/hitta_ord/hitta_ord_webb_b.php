@@ -11,26 +11,34 @@
 /* Ta emot data */ 
 
 $url = $_POST["url"]; 
-$sordet = $_POST["ordet"];  
+$sordet = $_POST["ordet"]; 
+$replace = $_POST["replace"]; 
 
 /* Läs in webbsidan */
-$innehall = file_get_contents($url);
-$antal = 0;
-$pos = 1;
+$gamlasida = file_get_contents($url);
+$nysida = "";
+$antal = -1;
+$start = 0; 
+$slut = 1;
 /* Dela upp texten i en array  */ 
 
 
 
 while ($pos != false) {
     /* Hitta första ordet  */
-$pos = stripos($innehall, $sordet, $pos + 1);
-echo "<p>$pos</p>";
+$slut = stripos($gamlasida, $sordet, $start + 1);
+/*Plocka ut text delen framför hittade ordet */
+$nysida .= substr($gamlasida, $start , $slut ) . $replace;
 $antal++;
+$start = $slut + strlen($sordet);
 }
-/* Skriv ut Resultat */ 
+/* Byta ord */  
+
+file_put_contents("test.html", $nysida);
 
 
-echo "<p>Vi har hittat ordet $sordet på $antal gånger i webbsidan.</p>"
+
+echo "<p>Vi har hittat ordet $sordet på $antal gånger i webbsidan.</p>";
 ?>
 </body>
 </html>

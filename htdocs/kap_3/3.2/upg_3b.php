@@ -10,8 +10,7 @@
 
 <?php
 /* Ta emot data */ 
-$namn = $_POST["namn"]; 
-$password = $_POST["password"]; 
+
 
 
 /* Kontrollera */ 

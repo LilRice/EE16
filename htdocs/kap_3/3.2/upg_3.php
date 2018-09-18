@@ -7,12 +7,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<?php   
+if (isset($_GET['fel'])) {
+    $fel = $_GET['fel'];
+    if($fel == 1){
+        echo "<p> Fel användarnamn eller lösenord. Försök igen!</p>";
+    
+    }
+}
+ 
+?>
+    <p> Var vänlig logga in!</p>
     <form action="upg_3b.php" method="post">
     <label>Namn</label> <input type="text" name="namn"> <br>
     <label>Lösenord</label> <input type="password" name="password"><br>
     
     
-    <button>Login</button>
+    <button>Login</button> 
+
+
     
     
     

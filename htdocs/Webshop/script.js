@@ -61,7 +61,7 @@ function start() {
 
     function kop() {
         /* Läs av korgen */
-        
+        var korgen = parse
         /* Addera antal summa */
         
         /* Skriv tillbaka */

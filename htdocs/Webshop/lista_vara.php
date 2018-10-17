@@ -22,7 +22,10 @@ Ladda upp varor i en katalog
     <div class="kontainer">
         <header>
             <h1>Alla Varor</h1>
-            <div id="korgen">0 kr</div>
+            <div>
+                <span id="antalVaror">0</span>
+                <span id="korgen">0</span>kr
+                
         </header>
 
         <main>
@@ -67,7 +70,8 @@ foreach ($allaRader as $rad) {
             WhipnDab
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script src="script.js"></script> 
+    
 
 
 </body>

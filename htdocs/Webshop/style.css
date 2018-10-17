@@ -112,6 +112,10 @@ table #kop {
     text-align: right; 
     padding :5px;  
     border-radius: 5px; 
-    background:white;
-
+    background: #eeeeee; 
+    color: black;
+}
+#antalVaror {
+    background-color: darkgreen; 
+    border-radius: 50%;
 }

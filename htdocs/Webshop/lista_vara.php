@@ -39,7 +39,7 @@ session_start();
         <main>
         <?php
         /* öppna textfilen och läas inehållet och skriva ut det. */
-        $allaRader = file("beskrivning.txt", FILE_IGNORE_NEW_LINES| FILE_IGNORE_EMPTY_LINES);
+        $allaRader = file("beskrivning.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         /* loopa igenom rad för rad */
         foreach ($allaRader as $rad) {
         $delar = explode("¤", $rad);

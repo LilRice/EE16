@@ -48,8 +48,14 @@ if (!isset($_SESSION['anamn'])) {
 if (isset($_POST['submit'])) {
     /* Ta emot data */
     $filen =  $_FILES['filen'];
-    $beskrivning = $_POST['beskrivning'];
-    $pris = $_POST['pris'];
+    $beskrivning = filter_input(INPUT_POST, 'beskrivning', FILTER_SANITIZE_STRING);
+    $pris = filter_input(INPUT_POST, 'pris', FILTER_SANITIZE_STRING); 
+
+    if($filen && $beskrivning && $pris) {
+
+    }else {
+
+    }
     
     /* Ladda upp bilden */
     /* Plocka ut filnamnet */
@@ -110,7 +116,9 @@ if (isset($_POST['submit'])) {
     $handtag = fopen('beskrivning.txt', 'a');
     fwrite($handtag, $beskrivning . '¤' . $pris . '¤' . $fileNewName . PHP_EOL);
     fclose($handtag);
-}
+} else {
+    echo "<p>Var god gyll i alla rutor</p>";
+ }
 ?>
             <form action="#" method="post" enctype="multipart/form-data">
                 <label>Beskrivning</label><input type="text" name="beskrivning"><br>

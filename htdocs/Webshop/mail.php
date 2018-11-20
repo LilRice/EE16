@@ -14,16 +14,21 @@
 <main>
 
 <?php
-if (isset($_POST['adressat']) && isset($_POST['rubrik']) && isset($_POST['meddelande'])) {
-    $adressat = $_POST['adressat']; 
-    $rubrik = $_POST['rubrik']; 
-    $meddelande = $_POST['meddelande']; 
 
-    /****** */ 
+$adressat = filter_input(INPUT_POST, 'adressat' , FILTER_SANITIZED_EMAIL); 
+$rubrik = filter_input(INPUT_POST, 'rubrik', FILTER_SANITIZED_STRING); 
+$meddelande = filter_input(INPUT_POST, 'meddelande', FILTER_SANITIZED_STRING); 
 
-    mail($adressat, $rubrik, $meddelande ); 
+if ($adressat && $rubrik && $meddelande) {
+
+    echo "<p>Mail skickat till $adressat";
+   echo "<p>Rubriken är $rubrik";               
     echo "<p>Mail skickat till $adressat</p>";
+}else {
+    echo "<p>Vg fyll i alla fält!</p>";
 }
+    
+    /****** */ 
 ?>
     <form action="#" method="post"> 
     <label for="adressat">E-post</label>

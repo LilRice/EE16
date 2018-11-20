@@ -14,6 +14,11 @@ session_start();
         <header>
             <h1>Kassan</h1> 
             <?php
+            /* Ta emot data */ 
+            $antalVaror = filter_input(INPUT_POST, 'antalVaror', FILTER_SANITIZE_NUMBER_INT); 
+            $total = filter_input(INPUT_POST, 'total',FILTER_SANITIZE_NUMBER_INT); 
+            
+            
             if (isset($_POST['antalVaror']) && 
                 isset($_POST['total']) &&
                 isset($_POST['korgen'])){
@@ -34,7 +39,12 @@ session_start();
                    
 
                      </tr>";
-                    foreach ($varor as $vara) {
+                    foreach ($varor as $vara) { 
+                        $beskrivning = filter_var($vara->beskrivning, FILTER_SANITIZE_STRING); 
+                        $antal = filter_var($vara->antal, FILTER_SANITIZE_NUMBER_INT); 
+                        $pris = filter_var($vara->pris, FILTER_SANITIZE_NUMBER_INT); 
+                        $summa = filter_var($vara->summa, FILTER_SANITIZE_NUMBER_INT);
+
                         echo "<tr>";
                         echo "<td>$vara->beskrivning</td>";
                         echo "<td>$vara->antal</td>";

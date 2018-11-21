@@ -64,7 +64,7 @@ session_start();
         ?>
         </main>
         <footer>
-            André Englund 2018
+            Bat Ganbat 2018
         </footer>
     </div>
     <script src="script2.js"></script>

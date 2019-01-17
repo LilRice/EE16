@@ -7,23 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php
-    $namn ="";
-    if(isset($_POST["namn"]) && isset($_POST["meddelande"])) { 
-
-        //Hämtade och sanerade data//
-        $namn = filter_input(INPUT_POST, "namn", FILTER_SANITIZE_STRING);
-        $meddelande = filter_input(INPUT_POST, "meddelande", FILTER_SANITIZE_STRING); 
-
-        $klocka = date("h:i"); 
-        $handtag = fopen("chatt.txt",'a'); 
-        fwrite($handtag, " $klocka, $namn, $meddelande" . PHP_EOL); 
-        fclose($handtag);
-    }else  {
-        echo "<p>Det Funkade Inte</p>";
-    }
-    
-    ?>
 <div class="container">
     <h1><?php
     echo $_SERVER['SERVER_ADDR'];

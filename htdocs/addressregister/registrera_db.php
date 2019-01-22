@@ -10,6 +10,7 @@ include_once("../../admin/konfig_db.php");
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <?php
 
 if(isset($_POST['fornamn']) && 
@@ -24,11 +25,11 @@ $epost = filter_input(INPUT_POST, 'epost', FILTER_SANITIZE_STRING);
 $conn = new mysqli($hostname, $user, $password, $database); 
 
 //Fingerade anslutningen//
-if ($conn->connect_error) 
+if ($conn->connect_error){   
     die("Oopsie daisy someone did the poopsie: " . $conn->connect_error);
-    else 
+}else {    
     echo "<p>Det lyckades!</p>"; 
-
+    }
 
 
 //Lagra data i tabellen//
@@ -36,7 +37,14 @@ if ($conn->connect_error)
 $sql = "INSERT INTO personer (fnamn, enamn, epost) VALUES ('$fornamn', '$efternamn', '$epost');"; 
 echo "<p>$sql</p>";
 
-$conn->query($sql);
+$result = $conn->query($sql); 
+
+
+if (!$result) {
+    die("DET BLEV FEEL!");
+}else{
+    echo "<p>Personen är registrerat</p>";
+}
 
 //Stänger ner anslutningen//
 $conn->close();
@@ -46,8 +54,16 @@ $conn->close();
 
 
 ?>
+
+
 <div class="kontainer">  
-    <h3>Registrera address</h3> 
+<h3>Registrera address</h3> 
+    <nav>
+    <a href="logga_in_db.php">Logga In</a>
+    <a href="registrera_db.php">Register</a>
+    <a href="lista_db.php">Lista</a>
+    </nav>
+
     <form action="#" method="post">
     <label for="">Förnamn</label> <input type="text" name="fornamn"> 
     <label for="">Efternamn</label> <input type="text" name="efternamn"> 

@@ -1,5 +1,6 @@
 <?php
 include_once("../../admin/konfig_db.php");
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="sv">

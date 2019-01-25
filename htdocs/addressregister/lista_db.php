@@ -49,7 +49,7 @@ while ($rad = $result->fetch_assoc()) {
 //Skapa knapp för att radera raden// 
 
 echo "<td><a href=\"radera_db_verifera.php?id={$rad['id']}\">Radera</a></td>"; 
-echo "<td><a href=\"redigera_db.php\">Redigera</a></td>";
+echo "<td><a href=\"redigera_db.php?id={$rad['id']}\">Redigera</a></td>";
     echo "</tr>";
     
 }

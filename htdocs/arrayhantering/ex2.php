@@ -8,10 +8,11 @@
 </head>
 <body>
     <?php
-    $link = "https://www.w3resource.com/index.php";  
-    
-
-
+    $color = array('white', 'green', 'red'); 
+    echo ("$color[0],$color[1],$color[2],<br>$color[1], <br>$color[2],<br>$color[0]"); 
+    foreach ($color as $key => $value) {
+        echo "The color is $key => $value. <br>";
+    }
     ?>
 </body>
 </html>

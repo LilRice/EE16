@@ -26,7 +26,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password =  filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING) ;
     /*Hash filen rad för för rad*/  
-    
      
     $conn = new mysqli($hostname, $user, $password, $database);
     /* Fungerade anslutningen? */
@@ -36,27 +35,26 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         /* echo "<p>Anslutningen lyckades!</p>"; */
     } 
 
+    $hash = password_hash($losen, PASSWORD_DEFAULT);
+
     //Hämta användarens lösenord från DB//  
 
-    $sql = "SELECT * FROM admin WHERE anamn = '$anamn';"; 
-
+    $sql = "INSERT INTO admin VALUES(anamn, hash) SET ('$anamn', '$hash');"; 
+    $result = $conn->query($sql);
+    
     if (!$result) {
         die("Det blev fel med SQL-satsen.");
     } else { 
-        $rad = $result->fetch_assoc(); 
-     if(password_verify($losen, $rad['hash'])) {
-         echo "Du är inloggad";
-     }else{
-         echo "Fel lösenord";
+        echo "Lyckade";
      }
     }  
 
-    $conn->close();
+    
 
     //Kontrollerar lösen om det är stämmer//
     
         
-    }
+    
 
 ?>
 <form action="#" method="post">

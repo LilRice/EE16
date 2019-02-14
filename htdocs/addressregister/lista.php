@@ -26,10 +26,7 @@
             echo "<td>$delar[1]</td>";
             echo "<td>$delar[2]</td>";
             echo "</tr>";
-            
-            
-            
-        }
+            }
        echo "</table>";
         
     ?>

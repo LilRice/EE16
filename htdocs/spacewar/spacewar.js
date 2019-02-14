@@ -21,6 +21,7 @@ function start() {
         /* raketens position */
         raket.x = 350;
         raket.y = 280;
+        
     }
 
     /* raket */
@@ -43,8 +44,17 @@ function start() {
         if (keys["ArrowDown"]) {
             raket.y += 10;
         }
-        if (raket.x == 0) {
+        if (raket.x < 0) {
             raket.x = 800;
+        } 
+        if (raket.x > 800 ) {
+            raket.x = 0;
+        } 
+        if (raket.y < 0) {
+            raket.y = 800;
+        } 
+        if (raket.y > 800 ) {
+            raket.y = 0;
         }
     } 
 

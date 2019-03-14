@@ -21,29 +21,37 @@ function start() {
         /* raketens position */
         raket.x = 350;
         raket.y = 280;
+        raket.v = 0; 
+        raket.h = 0;
         
+    }
+
+    function rad(v) {
+        return v / 180 * Math.PI;
     }
 
     /* raket */
     function ritaRaket() {
+        raket.x = raket.h * Math.cos(raket.v); 
+        raket.y = raket.h * Math.sin(raket.v);
+
         ctx.beginPath();
-        ctx.drawImage(imgRaket, raket.x, raket.y, 50, 50);
+        ctx.translate(raket.x, raket.y);
+        ctx.drawImage(imgRaket, 0 - 25, 0 - 25, 50, 50);
         ctx.closePath();
     }
     /* Flytta raketen */
     function uppdateraRaket() {
         if (keys["ArrowLeft"]) {
-            raket.x -= 10;
+            raket.v -= 1;
         }
         if (keys["ArrowRight"]) {
-            raket.x += 10;
+            raket.v += 1;
         }
         if (keys["ArrowUp"]) {
-            raket.y -= 10;
+            raket.h += 10;
         } 
-        if (keys["ArrowDown"]) {
-            raket.y += 10;
-        }
+        
         if (raket.x < 0) {
             raket.x = 800;
         } 
